@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grand Stay - Booking</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #071a33, #173b63);
+            min-height: 100vh;
+            color: #222;
+        }
+
+        /* HEADER */
+
+        .booking-header {
+            text-align: center;
+            color: white;
+            padding: 50px 20px 25px;
+        }
+
+        .booking-header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .booking-header h1 span {
+            color: #d4af37;
+        }
+
+        .booking-header p {
+            font-size: 18px;
+            color: #e5e5e5;
+        }
+
+        /* BOOKING CONTAINER */
+
+        .booking-container {
+            max-width: 650px;
+            margin: 20px auto 60px;
+            padding: 20px;
+        }
+
+        .booking-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .booking-card h2 {
+            text-align: center;
+            color: #071a33;
+            margin-bottom: 30px;
+        }
+
+        /* FORM */
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #d4af37;
+            box-shadow: 0 0 5px rgba(212,175,55,0.3);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* BUTTON */
+
+        .confirm-btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #d4af37, #f0c75e);
+            color: #071a33;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .confirm-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212,175,55,0.4);
+        }
+
+        /* SUCCESS MESSAGE */
+
+        #confirmation {
+            display: none;
+        }
+
+        .success-card {
+            background: white;
+            border-radius: 25px;
+            padding: 45px 30px;
+            text-align: center;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+            border-top: 7px solid #28a745;
+        }
+
+        .success-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #28a745;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            box-shadow: 0 8px 20px rgba(40,167,69,0.35);
+        }
+
+        .success-card h2 {
+            color: #071a33;
+            font-size: 32px;
+            margin: 10px 0;
+        }
+
+        .success-card h2 span {
+            color: #28a745;
+        }
+
+        .success-card .thank-you {
+            color: #666;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* BOOKING DETAILS */
+
+        .booking-details {
+            background: #f4f8ff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: left;
+            border-left: 5px solid #d4af37;
+        }
+
+        .booking-details h3 {
+            color: #071a33;
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 9px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-row strong {
+            color: #071a33;
+        }
+
+        .detail-row span {
+            color: #555;
+        }
+
+        /* CONTACT BOX */
+
+        .contact-box {
+            margin-top: 20px;
+            padding: 18px;
+            background: linear-gradient(135deg, #071a33, #173b63);
+            color: white;
+            border-radius: 12px;
+        }
+
+        .contact-box h3 {
+            margin-top: 0;
+            color: #d4af37;
+        }
+
+        .contact-box p {
+            margin: 8px 0;
+        }
+
+        .contact-box i {
+            color: #d4af37;
+            margin-right: 8px;
+        }
+
+        /* HOME BUTTON */
+
+        .home-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 25px;
+            background: #d4af37;
+            color: #071a33;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .home-btn:hover {
+            background: #071a33;
+            color: white;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .booking-card {
+                padding: 25px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-header h1 {
+                font-size: 32px;
+            }
+
+            .success-card h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="booking-header">
+
+    <h1>
+        Grand <span>Stay</span>
+    </h1>
+
+    <p>Reserve your perfect stay with us</p>
+
+</div>
+
+
+<!-- BOOKING FORM -->
+
+<div class="booking-container">
+
+    <div class="booking-card" id="bookingFormCard">
+
+        <h2>
+            <i class="fa-solid fa-calendar-check"></i>
+            Complete Your Booking
+        </h2>
+
+        <form id="bookingForm">
+
+            <div class="form-group">
+
+                <label>
+                    <i class="fa-solid fa-user"></i>
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your full name"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    <i class="fa-solid fa-envelope"></i>
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    <i class="fa-solid fa-phone"></i>
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter your phone number"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    <i class="fa-solid fa-bed"></i>
+                    Select Room
+                </label>
+
+                <select id="room" required>
+
+                    <option value="">
+                        -- Select a Room --
+                    </option>
+
+                    <option value="Single Room">
+                        Single Room - ₹2,500 / Night
+                    </option>
+
+                    <option value="Double Room">
+                        Double Room - ₹3,500 / Night
+                    </option>
+
+                    <option value="Deluxe Room">
+                        Deluxe Room - ₹5,000 / Night
+                    </option>
+
+                    <option value="Luxury Suite">
+                        Luxury Suite - ₹7,500 / Night
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label>
+                        <i class="fa-solid fa-calendar"></i>
+                        Check-in
+                    </label>
+
+                    <input
+                        type="date"
+                        id="checkin"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        <i class="fa-solid fa-calendar"></i>
+                        Check-out
+                    </label>
+
+                    <input
+                        type="date"
+                        id="checkout"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    <i class="fa-solid fa-users"></i>
+                    Number of Guests
+                </label>
+
+                <input
+                    type="number"
+                    id="guests"
+                    min="1"
+                    max="10"
+                    value="1"
+                    required>
+
+            </div>
+
+
+            <button type="submit" class="confirm-btn">
+
+                <i class="fa-solid fa-check-circle"></i>
+
+                Confirm Booking
+
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- PROFESSIONAL CONFIRMATION -->
+
+    <div id="confirmation">
+
+        <div class="success-card">
+
+            <div class="success-icon">
+
+                <i class="fa-solid fa-check"></i>
+
+            </div>
+
+
+            <h2>
+                Booking <span>Confirmed!</span>
+            </h2>
+
+
+            <p class="thank-you">
+
+                Thank you for choosing <strong>Grand Stay</strong>.
+                Your reservation has been successfully confirmed.
+                We look forward to welcoming you!
+
+            </p>
+
+
+            <!-- DETAILS -->
+
+            <div class="booking-details">
+
+                <h3>
+                    <i class="fa-solid fa-receipt"></i>
+                    Reservation Details
+                </h3>
+
+
+                <div class="detail-row">
+
+                    <strong>Guest Name</strong>
+
+                    <span id="confirmName"></span>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <strong>Email</strong>
+
+                    <span id="confirmEmail"></span>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <strong>Phone</strong>
+
+                    <span id="confirmPhone"></span>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <strong>Room</strong>
+
+                    <span id="confirmRoom"></span>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <strong>Check-in</strong>
+
+                    <span id="confirmCheckin"></span>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <strong>Check-out</strong>
+
+                    <span id="confirmCheckout"></span>
+
+                </div>
+
+
+                <div class="detail-row">
+
+                    <strong>Guests</strong>
+
+                    <span id="confirmGuests"></span>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div class="contact-box">
+
+                <h3>
+                    <i class="fa-solid fa-headset"></i>
+                    Need Assistance?
+                </h3>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    90236710
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    8787888099
+                </p>
+
+            </div>
+
+
+            <a href="index.html" class="home-btn">
+
+                <i class="fa-solid fa-house"></i>
+
+                Back to Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    // Get customer details
+
+    const name =
+        document.getElementById("name").value;
+
+    const email =
+        document.getElementById("email").value;
+
+    const phone =
+        document.getElementById("phone").value;
+
+    const room =
+        document.getElementById("room").value;
+
+    const checkin =
+        document.getElementById("checkin").value;
+
+    const checkout =
+        document.getElementById("checkout").value;
+
+    const guests =
+        document.getElementById("guests").value;
+
+
+    // Show details
+
+    document.getElementById("confirmName").textContent = name;
+
+    document.getElementById("confirmEmail").textContent = email;
+
+    document.getElementById("confirmPhone").textContent = phone;
+
+    document.getElementById("confirmRoom").textContent = room;
+
+    document.getElementById("confirmCheckin").textContent = checkin;
+
+    document.getElementById("confirmCheckout").textContent = checkout;
+
+    document.getElementById("confirmGuests").textContent = guests;
+
+
+    // Hide booking form
+
+    document.getElementById("bookingFormCard").style.display = "none";
+
+
+    // Show confirmation
+
+    document.getElementById("confirmation").style.display = "block";
+
+
+    // Move page to confirmation
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+</script>
+
+</body>
+</html>

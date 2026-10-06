@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Grand Stay</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* ABOUT HERO */
+
+        .about-hero {
+            height: 430px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.60),
+                    rgba(0,0,0,0.45)
+                ),
+                url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: white;
+        }
+
+        .about-hero h1 {
+            font-size: 55px;
+            margin: 15px 0;
+        }
+
+        .about-hero h1 span {
+            color: #f7c948;
+        }
+
+        .about-hero p {
+            font-size: 18px;
+        }
+
+
+        /* ABOUT SYSTEM */
+
+        .about-system {
+            padding: 80px 7%;
+            background: #faf9f6;
+        }
+
+        .about-system-container {
+            max-width: 1150px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-system-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .about-system-content .label {
+            color: #c28b00;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .about-system-content h2 {
+            font-size: 42px;
+            line-height: 1.2;
+            color: #111b27;
+
+            margin: 15px 0 20px;
+        }
+
+        .about-system-content h2 span {
+            color: #c28b00;
+        }
+
+        .about-system-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+
+        /* FEATURES */
+
+        .system-features {
+            padding: 80px 7%;
+            background: white;
+
+            text-align: center;
+        }
+
+        .system-features h2 {
+            font-size: 40px;
+            color: #111b27;
+        }
+
+        .system-features h2 span {
+            color: #c28b00;
+        }
+
+        .feature-subtitle {
+            color: #777;
+            margin: 10px 0 45px;
+        }
+
+        .system-feature-grid {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .system-feature-card {
+            background: #faf9f6;
+
+            padding: 30px 20px;
+
+            border-radius: 12px;
+
+            border: 1px solid #eee;
+
+            transition: 0.3s;
+        }
+
+        .system-feature-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 12px 25px rgba(0,0,0,0.12);
+        }
+
+        .system-feature-card i {
+            width: 65px;
+            height: 65px;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #fff4cd;
+
+            color: #c28b00;
+
+            font-size: 27px;
+        }
+
+        .system-feature-card h3 {
+            margin: 18px 0 8px;
+            color: #111b27;
+        }
+
+        .system-feature-card p {
+            color: #777;
+            font-size: 14px;
+        }
+
+
+        /* BOOKING PROCESS */
+
+        .booking-process {
+            padding: 80px 7%;
+
+            background: #111b27;
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .booking-process h2 {
+            font-size: 40px;
+        }
+
+        .booking-process h2 span {
+            color: #f7c948;
+        }
+
+        .process-subtitle {
+            color: #bbb;
+            margin: 10px 0 45px;
+        }
+
+        .process-grid {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .process-card {
+            padding: 25px;
+
+            border-radius: 12px;
+
+            background: rgba(255,255,255,0.06);
+
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .process-number {
+            width: 55px;
+            height: 55px;
+
+            margin: auto;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #f7c948;
+
+            color: #111;
+
+            font-weight: bold;
+        }
+
+        .process-card h3 {
+            margin: 15px 0 8px;
+        }
+
+        .process-card p {
+            color: #bbb;
+            font-size: 14px;
+        }
+
+
+        /* CONTACT */
+
+        .about-contact {
+            padding: 70px 7%;
+
+            text-align: center;
+
+            background: #faf9f6;
+        }
+
+        .about-contact h2 {
+            font-size: 38px;
+            color: #111b27;
+        }
+
+        .about-contact h2 span {
+            color: #c28b00;
+        }
+
+        .about-contact p {
+            color: #777;
+            margin: 10px 0 25px;
+        }
+
+        .book-button {
+            display: inline-block;
+
+            background: #f7c948;
+
+            color: #111;
+
+            padding: 14px 28px;
+
+            border-radius: 7px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .book-button:hover {
+            background: #111b27;
+            color: white;
+        }
+
+
+        /* MOBILE */
+
+        @media(max-width:800px) {
+
+            .about-hero h1 {
+                font-size: 40px;
+            }
+
+            .about-system-container {
+                grid-template-columns: 1fr;
+            }
+
+            .system-feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+        }
+
+        @media(max-width:500px) {
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        Grand <span>Stay</span>
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="rooms.html">
+            Rooms
+        </a>
+
+        <a href="about.html" class="active">
+            About
+        </a>
+
+        <a href="index.html#contact">
+            Contact
+        </a>
+
+        <a href="booking.html" class="nav-book">
+            Book Now
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     ABOUT HERO
+========================= -->
+
+<section class="about-hero">
+
+    <div>
+
+        <p>
+            ✦ EXPERIENCE GRAND STAY ✦
+        </p>
+
+        <h1>
+            About <span>Grand Stay</span>
+        </h1>
+
+        <p>
+            Comfort • Luxury • Hospitality
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT BOOKING SYSTEM
+========================= -->
+
+<section class="about-system">
+
+    <div class="about-system-container">
+
+
+        <div class="about-system-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=85"
+                alt="Grand Stay Hotel"
+            >
+
+        </div>
+
+
+        <div class="about-system-content">
+
+            <p class="label">
+                ABOUT OUR SYSTEM
+            </p>
+
+            <h2>
+                Smart & Simple
+                <br>
+                <span>Hotel Booking System</span>
+            </h2>
+
+            <p>
+                Grand Stay Hotel Booking System is a
+                user-friendly website created to make
+                hotel room booking simple and convenient.
+            </p>
+
+            <p>
+                Customers can explore different rooms,
+                check available options, enter their
+                booking details and confirm their stay.
+            </p>
+
+            <p>
+                The system provides a smooth experience
+                from selecting a room to receiving a
+                booking confirmation.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section class="system-features">
+
+    <h2>
+        Our <span>Booking System Features</span>
+    </h2>
+
+    <p class="feature-subtitle">
+        Everything you need for a simple and comfortable
+        hotel booking experience.
+    </p>
+
+
+    <div class="system-feature-grid">
+
+
+        <div class="system-feature-card">
+
+            <i class="fa-solid fa-bed"></i>
+
+            <h3>
+                Room Selection
+            </h3>
+
+            <p>
+                Browse different room types and
+                select the room you prefer.
+            </p>
+
+        </div>
+
+
+        <div class="system-feature-card">
+
+            <i class="fa-solid fa-calendar-check"></i>
+
+            <h3>
+                Easy Booking
+            </h3>
+
+            <p>
+                Enter your check-in, check-out and
+                guest details through a simple form.
+            </p>
+
+        </div>
+
+
+        <div class="system-feature-card">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h3>
+                Booking Confirmation
+            </h3>
+
+            <p>
+                Receive a clear confirmation message
+                after completing your booking.
+            </p>
+
+        </div>
+
+
+        <div class="system-feature-card">
+
+            <i class="fa-solid fa-mobile-screen"></i>
+
+            <h3>
+                Responsive Website
+            </h3>
+
+            <p>
+                The website is designed to work on
+                computers, tablets and mobile phones.
+            </p>
+
+        </div>
+
+
+        <div class="system-feature-card">
+
+            <i class="fa-solid fa-hotel"></i>
+
+            <h3>
+                Hotel Information
+            </h3>
+
+            <p>
+                Easily view hotel facilities,
+                rooms and important information.
+            </p>
+
+        </div>
+
+
+        <div class="system-feature-card">
+
+            <i class="fa-solid fa-headset"></i>
+
+            <h3>
+                Customer Support
+            </h3>
+
+            <p>
+                Contact the hotel whenever you
+                need assistance.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     HOW BOOKING WORKS
+========================= -->
+
+<section class="booking-process">
+
+    <h2>
+        How <span>Booking Works</span>
+    </h2>
+
+    <p class="process-subtitle">
+        Complete your hotel reservation in four simple steps.
+    </p>
+
+
+    <div class="process-grid">
+
+
+        <div class="process-card">
+
+            <div class="process-number">
+                01
+            </div>
+
+            <h3>
+                Explore
+            </h3>
+
+            <p>
+                Browse the available rooms and
+                hotel facilities.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="process-number">
+                02
+            </div>
+
+            <h3>
+                Select
+            </h3>
+
+            <p>
+                Choose the room that is suitable
+                for your stay.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="process-number">
+                03
+            </div>
+
+            <h3>
+                Book
+            </h3>
+
+            <p>
+                Enter your personal and
+                booking details.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="process-number">
+                04
+            </div>
+
+            <h3>
+                Confirm
+            </h3>
+
+            <p>
+                Submit the form and receive
+                your confirmation.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT / BOOKING
+========================= -->
+
+<section class="about-contact">
+
+    <h2>
+        Ready to <span>Book Your Stay?</span>
+    </h2>
+
+    <p>
+        Experience comfort, luxury and excellent
+        hospitality at Grand Stay.
+    </p>
+
+    <p>
+        📞 92*****7*99 &nbsp;&nbsp; | &nbsp;&nbsp;
+        📞 8787888099
+    </p>
+
+    <br>
+
+    <a href="booking.html" class="book-button">
+
+        Book Your Room
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+    </a>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-main">
+
+
+        <div class="footer-about">
+
+            <h2>
+                Grand <span>Stay</span>
+            </h2>
+
+            <p>
+                Comfort, luxury and exceptional
+                hospitality for a memorable stay.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="rooms.html">
+                Rooms
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>
+                Booking
+            </h3>
+
+            <a href="booking.html">
+                Book a Room
+            </a>
+
+            <a href="rooms.html">
+                View Rooms
+            </a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                📞 92*****7*99
+            </p>
+
+            <p>
+                📞 8787888099
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Grand Stay Hotel.
+            All Rights Reserved.
+        </p>
+
+        <p>
+            Made with ❤️ for a better stay.
+        </p>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

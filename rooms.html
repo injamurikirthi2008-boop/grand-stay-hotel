@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grand Stay - Rooms</title>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+        }
+
+        .rooms-header {
+            background: #071a33;
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .rooms-header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .rooms-header p {
+            font-size: 18px;
+            color: #ddd;
+        }
+
+        .rooms-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .room-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+            transition: 0.3s;
+        }
+
+        .room-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .room-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .room-content {
+            padding: 25px;
+        }
+
+        .room-content h2 {
+            color: #071a33;
+            margin-top: 0;
+        }
+
+        .room-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .room-price {
+            font-size: 22px;
+            font-weight: bold;
+            color: #c9a227;
+            margin: 15px 0;
+        }
+
+        .room-features {
+            margin: 15px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .room-features li {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .room-features i {
+            color: #c9a227;
+            margin-right: 8px;
+        }
+
+        .book-btn {
+            display: inline-block;
+            background: #c9a227;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .book-btn:hover {
+            background: #071a33;
+        }
+
+        .back-home {
+            text-align: center;
+            margin: 30px 0 50px;
+        }
+
+        .back-home a {
+            text-decoration: none;
+            color: #071a33;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .rooms-container {
+                grid-template-columns: 1fr;
+            }
+
+            .rooms-header h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<section class="rooms-header">
+    <h1>Our Rooms</h1>
+    <p>Choose the perfect room for your comfortable stay</p>
+</section>
+
+
+<!-- ROOMS -->
+<div class="rooms-container">
+
+    <!-- SINGLE ROOM -->
+    <div class="room-card">
+
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1000&q=80"
+             alt="Single Room">
+
+        <div class="room-content">
+
+            <h2>Single Room</h2>
+
+            <p>
+                A comfortable and peaceful room designed for individual guests.
+            </p>
+
+            <div class="room-price">
+                ₹2,500 / Night
+            </div>
+
+            <ul class="room-features">
+                <li><i class="fa-solid fa-bed"></i> 1 Comfortable Bed</li>
+                <li><i class="fa-solid fa-wifi"></i> Free Wi-Fi</li>
+                <li><i class="fa-solid fa-tv"></i> Smart TV</li>
+                <li><i class="fa-solid fa-bath"></i> Private Bathroom</li>
+            </ul>
+
+            <a href="booking.html" class="book-btn">
+                <i class="fa-solid fa-calendar-check"></i>
+                Book Now
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- DOUBLE ROOM -->
+    <div class="room-card">
+
+        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80"
+             alt="Double Room">
+
+        <div class="room-content">
+
+            <h2>Double Room</h2>
+
+            <p>
+                Spacious room with two comfortable beds, perfect for friends or couples.
+            </p>
+
+            <div class="room-price">
+                ₹3,500 / Night
+            </div>
+
+            <ul class="room-features">
+                <li><i class="fa-solid fa-bed"></i> 2 Comfortable Beds</li>
+                <li><i class="fa-solid fa-wifi"></i> Free Wi-Fi</li>
+                <li><i class="fa-solid fa-tv"></i> Smart TV</li>
+                <li><i class="fa-solid fa-mug-hot"></i> Tea & Coffee</li>
+            </ul>
+
+            <a href="booking.html" class="book-btn">
+                <i class="fa-solid fa-calendar-check"></i>
+                Book Now
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- DELUXE ROOM -->
+    <div class="room-card">
+
+        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1000&q=80"
+             alt="Deluxe Room">
+
+        <div class="room-content">
+
+            <h2>Deluxe Room</h2>
+
+            <p>
+                Enjoy a luxurious stay with elegant interiors and premium facilities.
+            </p>
+
+            <div class="room-price">
+                ₹5,000 / Night
+            </div>
+
+            <ul class="room-features">
+                <li><i class="fa-solid fa-bed"></i> King Size Bed</li>
+                <li><i class="fa-solid fa-wifi"></i> Free Wi-Fi</li>
+                <li><i class="fa-solid fa-tv"></i> Smart TV</li>
+                <li><i class="fa-solid fa-snowflake"></i> Air Conditioning</li>
+            </ul>
+
+            <a href="booking.html" class="book-btn">
+                <i class="fa-solid fa-calendar-check"></i>
+                Book Now
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- SUITE ROOM -->
+    <div class="room-card">
+
+        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80"
+             alt="Suite Room">
+
+        <div class="room-content">
+
+            <h2>Luxury Suite</h2>
+
+            <p>
+                Experience the ultimate luxury with a spacious suite and premium services.
+            </p>
+
+            <div class="room-price">
+                ₹7,500 / Night
+            </div>
+
+            <ul class="room-features">
+                <li><i class="fa-solid fa-bed"></i> Luxury King Bed</li>
+                <li><i class="fa-solid fa-wifi"></i> Free Wi-Fi</li>
+                <li><i class="fa-solid fa-tv"></i> Large Smart TV</li>
+                <li><i class="fa-solid fa-concierge-bell"></i> Room Service</li>
+            </ul>
+
+            <a href="booking.html" class="book-btn">
+                <i class="fa-solid fa-calendar-check"></i>
+                Book Now
+            </a>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- BACK TO HOME -->
+<div class="back-home">
+    <a href="index.html">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Home
+    </a>
+</div>
+
+</body>
+</html>
